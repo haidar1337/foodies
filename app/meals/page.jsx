@@ -3,6 +3,12 @@ import styles from "./page.module.css";
 import getMeals from "@/lib/meals";
 import MealsGrid from "@/components/meals/meals-grid";
 import { Suspense } from "react";
+import MealsLoadingPage from "./loading-out";
+
+export const metadata = {
+  title: "All Meals",
+  description: "Browse meals",
+};
 
 async function Meals() {
   const meals = await getMeals();
@@ -26,9 +32,7 @@ export default function MealsPage() {
         </p>
       </header>
       <main className={styles.main}>
-        <Suspense
-          fallback={<p className={styles.loading}>Fetching meals...</p>}
-        >
+        <Suspense fallback={<MealsLoadingPage />}>
           <Meals />
         </Suspense>
       </main>

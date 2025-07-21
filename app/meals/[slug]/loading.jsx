@@ -1,5 +1,5 @@
 import styles from "./loading.module.css";
 
-export default function MealsLoadingPage() {
+export default function MealLoadingPage() {
   return <p className={styles.loading}>Fetching meal data...</p>;
 }
